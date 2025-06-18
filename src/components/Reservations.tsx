@@ -17,10 +17,10 @@ const Reservations = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (field: string, value: string) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [field]: value
     });
   };
 
@@ -62,10 +62,7 @@ const Reservations = () => {
   return (
     <section id="reservations" className="py-24 bg-gradient-to-b from-white to-luxury-cream relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-10 w-48 h-48 border-2 border-primary-600 rounded-full"></div>
-        <div className="absolute bottom-20 left-10 w-32 h-32 border-2 border-gold-400 rounded-full"></div>
-      </div>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -191,8 +188,8 @@ const Reservations = () => {
                       id="name"
                       name="name"
                       value={formData.name}
-                      onChange={handleChange}
                       required
+                      onChange={(e) => handleChange('name', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-300"
                       placeholder="Enter your full name"
                     />
@@ -211,7 +208,8 @@ const Reservations = () => {
                       id="email"
                       name="email"
                       value={formData.email}
-                      onChange={handleChange}
+                      onChange={(e) => handleChange('email', e.target.value)}
+
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-300"
                       placeholder="Enter your email"
@@ -233,7 +231,7 @@ const Reservations = () => {
                       id="date"
                       name="date"
                       value={formData.date}
-                      onChange={handleChange}
+                      onChange={(e) => handleChange('date', e.target.value)}
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-300"
                     />
@@ -251,7 +249,8 @@ const Reservations = () => {
                       id="time"
                       name="time"
                       value={formData.time}
-                      onChange={handleChange}
+                      onChange={(e) => handleChange('time', e.target.value)}
+
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-300"
                     >
@@ -282,7 +281,8 @@ const Reservations = () => {
                       id="guests"
                       name="guests"
                       value={formData.guests}
-                      onChange={handleChange}
+                      onChange={(e) => handleChange('guests', e.target.value)}
+
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-300"
                     >
@@ -311,7 +311,8 @@ const Reservations = () => {
                     id="message"
                     name="message"
                     value={formData.message}
-                    onChange={handleChange}
+                    onChange={(e) => handleChange('message', e.target.value)}
+
                     rows={4}
                     placeholder="Any special dietary requirements, allergies, or occasion details..."
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-300 resize-none"

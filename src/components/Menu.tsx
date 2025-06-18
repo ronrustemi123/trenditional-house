@@ -179,7 +179,7 @@ const Menu = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: 0, duration: 0.1 }}
               whileHover={{ scale: 1.02, y: -5 }}
               className={`group p-8 rounded-2xl transition-all duration-300 relative overflow-hidden ${
                 item.featured 
@@ -187,14 +187,6 @@ const Menu = () => {
                   : 'bg-white hover:bg-gray-50 shadow-lg hover:shadow-xl border border-gray-100'
               }`}
             >
-              {item.featured && (
-                <div className="absolute top-4 right-4">
-                  <div className="bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                    Chef's Special
-                  </div>
-                </div>
-              )}
-              
               <div className="flex justify-between items-start mb-4">
                 <h3 className={`text-2xl font-serif font-bold transition-colors ${
                   item.featured ? 'text-white' : 'text-primary-600 group-hover:text-primary-700'
@@ -215,7 +207,7 @@ const Menu = () => {
               </p>
               
               <div className="flex gap-3">
-                {item.tags.map((tag) => (
+                {item.tags.map((tag: React.Key | null | undefined) => (
                   <span key={tag} className={`flex items-center gap-1 text-sm px-3 py-1 rounded-full ${
                     item.featured 
                       ? 'bg-white/20 text-white' 
@@ -235,23 +227,6 @@ const Menu = () => {
               }`}></div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-center mt-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.querySelector('#reservations')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-10 py-4 rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-          >
-            Reserve Your Table
-          </motion.button>
         </motion.div>
       </div>
     </section>

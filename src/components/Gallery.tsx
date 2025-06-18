@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Camera, Heart, Star } from 'lucide-react';
 
@@ -89,7 +89,7 @@ const Gallery = () => {
               key={index}
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: 0, duration: 0 }}
               whileHover={{ scale: 1.05, y: -10 }}
               className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
             >

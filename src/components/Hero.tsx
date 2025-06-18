@@ -1,15 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToNext = () => {
-    const aboutSection = document.querySelector('#about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background with Parallax Effect */}
@@ -106,23 +98,7 @@ const Hero = () => {
         </motion.div>
       </div>
       
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
-        onClick={scrollToNext}
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center space-y-2"
-        >
-          <span className="text-sm font-light tracking-wider">Discover More</span>
-          <ChevronDown size={24} className="text-gold-400" />
-        </motion.div>
-      </motion.div>
+
     </section>
   );
 };
